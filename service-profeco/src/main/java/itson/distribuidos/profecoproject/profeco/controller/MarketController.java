@@ -1,7 +1,7 @@
-package itson.distribuidos.profecoproject.market.controller;
+package itson.distribuidos.profecoproject.profeco.controller;
 
-import itson.distribuidos.profecoproject.market.entities.Market;
-import itson.distribuidos.profecoproject.market.service.MarketService;
+import itson.distribuidos.profecoproject.profeco.entities.Market;
+import itson.distribuidos.profecoproject.profeco.service.MarketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +12,6 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/markets")
 public class MarketController {
-
     @Autowired
     private MarketService marketService;
 
@@ -59,5 +58,4 @@ public class MarketController {
         }
         return ResponseEntity.ok("[ DELETED ]");
     }
-
 }
