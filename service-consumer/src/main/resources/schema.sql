@@ -7,3 +7,16 @@ CREATE TABLE tbl_consumers (
   phone_number VARCHAR(15) NOT NULL,
   email VARCHAR(100) NOT NULL
 );
+
+DROP TABLE IF EXISTS tbl_complains;
+
+CREATE TABLE tbl_complains (
+  id BIGINT AUTO_INCREMENT  PRIMARY KEY,
+  reason VARCHAR(250) NOT NULL,
+  description VARCHAR(200) NOT NULL,
+  evidence VARCHAR(200) NOT NULL,
+  date_created DATE NOT NULL,
+  consumer_id BIGINT,
+  market_id BIGINT NOT NULL,
+  FOREIGN KEY (consumer_id) REFERENCES tbl_consumers(id)
+);

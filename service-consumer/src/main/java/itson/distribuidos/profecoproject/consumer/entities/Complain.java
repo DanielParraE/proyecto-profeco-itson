@@ -1,5 +1,7 @@
 package itson.distribuidos.profecoproject.consumer.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import itson.distribuidos.profecoproject.consumer.models.Market;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,17 +22,20 @@ public class Complain {
 
     private String description;
 
-    private byte[] evidence;
+    private String evidence;
 
     @Column(name = "date_created")
     @Temporal(TemporalType.DATE)
     private Date dateCreated;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     @JoinColumn(name = "consumer_id")
     private Consumer author;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "market_id")
+    @Column(name = "market_id")
+    private Long marketID;
+
+    @Transient
     private Market market;
 }
