@@ -11,8 +11,7 @@ spring:
       - id: consumer-service
         uri: lb://consumer-service
         predicates:
-          - Path=/consumers/**
-          - Path=/complains/**
+          - Path=/consumers/**, /complains/**
       - id: market-service
         uri: lb://market-service
         predicates:
